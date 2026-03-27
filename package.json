@@ -29,7 +29,7 @@
     "zipper"
   ],
   "author": "manas",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "tsup": "^8.5.1",
     "typescript": "^6.0.2",
