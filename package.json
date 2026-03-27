@@ -1,0 +1,38 @@
+{
+  "name": "tokenzip",
+  "version": "0.0.1",
+  "description": "A token compressor which nealy reduces the JSON token size upto 50%",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "examples": "cd examples && npm run all",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "keywords": [
+    "token",
+    "compressor",
+    "tokenzip",
+    "token",
+    "zipper"
+  ],
+  "author": "manas",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  }
+}

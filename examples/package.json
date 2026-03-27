@@ -1,0 +1,21 @@
+{
+  "name": "tokenzip-examples",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "flat-records":    "tsx 01-flat-records.ts",
+    "server-logs":     "tsx 02-server-logs.ts",
+    "nested-config":   "tsx 03-nested-config.ts",
+    "nested-orders":   "tsx 04-nested-orders.ts",
+    "blog-posts":      "tsx 05-blog-posts.ts",
+    "all":             "tsx 01-flat-records.ts && tsx 02-server-logs.ts && tsx 03-nested-config.ts && tsx 04-nested-orders.ts && tsx 05-blog-posts.ts"
+  },
+  "dependencies": {
+    "tokenzip": "file:../"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
+}
