@@ -1,5 +1,5 @@
 {
-  "name": "contextzip",
+  "name": "ctx-compressor",
   "version": "0.0.1",
   "description": "A token compressor which nealy reduces the JSON token size upto 50%",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
   "keywords": [
     "token",
     "compressor",
-    "contextzip",
+    "ctx-compressor",
     "token",
     "zipper",
     "ontextzip"

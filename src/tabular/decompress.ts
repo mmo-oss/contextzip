@@ -1,4 +1,4 @@
-import { DATA_MARKER, ENUM_PREFIX, PHRASE_PREFIX, SAME, SEP } from '../constants.js';
+import { DATA_MARKER, ENUM_PREFIX, PHRASE_PREFIX, SEP } from '../constants.js';
 import type { FieldDef, FieldType } from '../types.js';
 import { decodeText } from '../utils/sentences.js';
 
@@ -25,7 +25,6 @@ export function decompressTabular(lines: string[], i: number): unknown[] {
   if (i < lines.length && lines[i] === DATA_MARKER) i++;
 
   const result: Record<string, unknown>[] = [];
-  const prev = new Map<string, unknown>();
 
   while (i < lines.length) {
     const line = lines[i++];
@@ -42,12 +41,8 @@ export function decompressTabular(lines: string[], i: number): unknown[] {
         obj[name] = decodeText(raw, phraseDecode);
 
       } else if (type === 's') {
-        if (raw === SAME) {
-          obj[name] = prev.get(name) ?? '';
-        } else if (raw.startsWith(ENUM_PREFIX)) {
-          const v = enumDecode.get(raw) ?? raw;
-          obj[name] = v;
-          prev.set(name, v);
+        if (raw.startsWith(ENUM_PREFIX)) {
+          obj[name] = enumDecode.get(raw) ?? raw;
         } else {
           obj[name] = raw;
         }

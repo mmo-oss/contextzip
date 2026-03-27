@@ -30,7 +30,7 @@ describe('tabular mode', () => {
     expect(out).toContain('&0=Sindhi');
   });
 
-  it('uses * for same-as-previous enum value', () => {
+  it('repeats enum token for same value in consecutive rows', () => {
     const data = [
       { lang: 'English', id: 'A1' },
       { lang: 'English', id: 'A2' },
@@ -38,7 +38,7 @@ describe('tabular mode', () => {
     ];
     const out = compress(data);
     const rows = out.split('\n~\n')[1].split('\n');
-    expect(rows[1]).toBe('*|A2');
+    expect(rows[1]).toBe('&0|A2');
   });
 
   it('numbers encoded with correct decimal scale', () => {

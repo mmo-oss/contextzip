@@ -1,5 +1,5 @@
 {
-  "name": "contextzip-examples",
+  "name": "ctx-compressor-examples",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,7 @@
     "all":             "tsx 01-flat-records.ts && tsx 02-server-logs.ts && tsx 03-nested-config.ts && tsx 04-nested-orders.ts && tsx 05-blog-posts.ts"
   },
   "dependencies": {
-    "contextzip": "file:../"
+    "ctx-compressor": "file:../"
   },
   "devDependencies": {
     "tsx": "^4.21.0",

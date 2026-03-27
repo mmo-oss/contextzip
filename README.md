@@ -1,17 +1,17 @@
-# contextzip
+# ctx-compressor
 
 Compress JSON for LLM contexts. Replaces repeated values, key names, and sentences with short tokens - cutting character count by 50–75% while keeping the output fully human-readable and reversible.
 
 ## Install
 
 ```bash
-npm install contextzip
+npm install ctx-compressor
 ```
 
 ## Quick start
 
 ```ts
-import { compress, decompress, stats } from 'contextzip';
+import { compress, decompress, stats } from 'ctx-compressor';
 
 const data = [
   { name: 'Adeel Solangi', language: 'Sindhi', id: 'V59OF92YF627HFY0', version: 6.1 },
@@ -128,7 +128,7 @@ interface CompressionStats {
 ### Flat records (tabular mode)
 
 ```ts
-import { compress, decompress } from 'contextzip';
+import { compress, decompress } from 'ctx-compressor';
 
 const logs = [
   { level: 'INFO',  service: 'auth',  message: 'User login successful. Token issued.', code: 200 },
@@ -171,7 +171,7 @@ const compressed = compress(config);
 ### Measuring savings
 
 ```ts
-import { compress, stats } from 'contextzip';
+import { compress, stats } from 'ctx-compressor';
 
 const compressed = compress(myData);
 const s = stats(JSON.stringify(myData), compressed);
@@ -181,7 +181,7 @@ console.log(`${s.originalChars} → ${s.compressedChars} chars (${s.savings} sav
 
 ## When to use it
 
-contextzip is designed for passing large JSON payloads to LLMs. Because the output is plain text with a simple, consistent grammar, language models can read and reason about it without any special instructions. The compression is entirely lossless — `decompress(compress(x))` always returns a deep-equal copy of `x`.
+ctx-compressor is designed for passing large JSON payloads to LLMs. Because the output is plain text with a simple, consistent grammar, language models can read and reason about it without any special instructions. The compression is entirely lossless — `decompress(compress(x))` always returns a deep-equal copy of `x`.
 
 Ideal inputs:
 

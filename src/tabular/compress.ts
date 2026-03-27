@@ -1,4 +1,4 @@
-import { BASE62, DATA_MARKER, ENUM_PREFIX, FORMAT, PHRASE_PREFIX, SAME, SCHEMA_MARKER, SEP } from '../constants.js';
+import { BASE62, DATA_MARKER, ENUM_PREFIX, FORMAT, PHRASE_PREFIX, SCHEMA_MARKER, SEP } from '../constants.js';
 import type { CompressOptions, FieldDef } from '../types.js';
 import { encodeText, splitSentences } from '../utils/sentences.js';
 import { inferType } from '../utils/schema.js';
@@ -51,7 +51,6 @@ export function compressTabular(
     phraseEncode.set(eligible[i][0], `${PHRASE_PREFIX}${BASE62[i]}`);
 
   const rows: string[] = [];
-  const prev = new Map<string, string>();
 
   for (const r of recs) {
     const cols: string[] = [];
@@ -64,12 +63,7 @@ export function compressTabular(
       } else if (type === 's') {
         const v = String(raw ?? '');
         if (enumEncode.has(v)) {
-          if (v === prev.get(name)) {
-            cols.push(SAME);
-          } else {
-            cols.push(enumEncode.get(v)!);
-            prev.set(name, v);
-          }
+          cols.push(enumEncode.get(v)!);
         } else {
           cols.push(v);
         }

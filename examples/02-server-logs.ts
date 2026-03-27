@@ -1,4 +1,4 @@
-import { compress, decompress } from 'contextzip';
+import { compress, decompress } from 'ctx-compressor';
 import { printResult } from './_print.js';
 
 const logs = [

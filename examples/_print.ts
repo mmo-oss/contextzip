@@ -1,4 +1,4 @@
-import { stats } from 'contextzip';
+import { stats } from 'ctx-compressor';
 
 export function printResult(label: string, original: unknown, compressed: string) {
   const s = stats(JSON.stringify(original), compressed);
