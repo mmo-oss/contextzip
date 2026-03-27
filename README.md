@@ -1,17 +1,17 @@
-# tokenzip
+# contextzip
 
 Compress JSON for LLM contexts. Replaces repeated values, key names, and sentences with short tokens - cutting character count by 50–75% while keeping the output fully human-readable and reversible.
 
 ## Install
 
 ```bash
-npm install tokenzip
+npm install contextzip
 ```
 
 ## Quick start
 
 ```ts
-import { compress, decompress, stats } from 'tokenzip';
+import { compress, decompress, stats } from 'contextzip';
 
 const data = [
   { name: 'Adeel Solangi', language: 'Sindhi', id: 'V59OF92YF627HFY0', version: 6.1 },
@@ -128,7 +128,7 @@ interface CompressionStats {
 ### Flat records (tabular mode)
 
 ```ts
-import { compress, decompress } from 'tokenzip';
+import { compress, decompress } from 'contextzip';
 
 const logs = [
   { level: 'INFO',  service: 'auth',  message: 'User login successful. Token issued.', code: 200 },
@@ -171,7 +171,7 @@ const compressed = compress(config);
 ### Measuring savings
 
 ```ts
-import { compress, stats } from 'tokenzip';
+import { compress, stats } from 'contextzip';
 
 const compressed = compress(myData);
 const s = stats(JSON.stringify(myData), compressed);
@@ -181,7 +181,7 @@ console.log(`${s.originalChars} → ${s.compressedChars} chars (${s.savings} sav
 
 ## When to use it
 
-tokenzip is designed for passing large JSON payloads to LLMs. Because the output is plain text with a simple, consistent grammar, language models can read and reason about it without any special instructions. The compression is entirely lossless — `decompress(compress(x))` always returns a deep-equal copy of `x`.
+contextzip is designed for passing large JSON payloads to LLMs. Because the output is plain text with a simple, consistent grammar, language models can read and reason about it without any special instructions. The compression is entirely lossless — `decompress(compress(x))` always returns a deep-equal copy of `x`.
 
 Ideal inputs:
 

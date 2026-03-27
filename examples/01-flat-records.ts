@@ -1,4 +1,4 @@
-import { compress, decompress } from 'tokenzip';
+import { compress, decompress } from 'contextzip';
 import { printResult } from './_print.js';
 
 const users = [

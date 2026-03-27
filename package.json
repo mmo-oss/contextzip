@@ -1,5 +1,5 @@
 {
-  "name": "tokenzip",
+  "name": "contextzip",
   "version": "0.0.1",
   "description": "A token compressor which nealy reduces the JSON token size upto 50%",
   "main": "dist/index.js",
@@ -24,9 +24,10 @@
   "keywords": [
     "token",
     "compressor",
-    "tokenzip",
+    "contextzip",
     "token",
-    "zipper"
+    "zipper",
+    "ontextzip"
   ],
   "author": "manas",
   "license": "MIT",
