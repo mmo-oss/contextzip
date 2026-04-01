@@ -15,3 +15,10 @@ export const PHRASE_PREFIX = '#';
 export const SAME = '*';
 
 export const SCHEMA_MARKER = '\u00a7';
+
+export const TEXT_MARKER = '@';
+
+export const MIXED_MARKER = '@mixed';
+
+export const SEG_OPEN_PREFIX = '<<<CTX:'; // followed by indent number, then \n
+export const SEG_CLOSE = '<<<END>>>';

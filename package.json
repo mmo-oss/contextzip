@@ -1,6 +1,6 @@
 {
   "name": "ctx-compressor",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A token compressor which nealy reduces the JSON token size upto 50%",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
